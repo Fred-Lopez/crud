@@ -26,11 +26,11 @@
                 $id = $_POST['id'];
                 $stmt = $pdo->prepare("UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?");
                 $stmt->execute([$nome, $email, $senha, $id]);
-                echo "Usuário atualizado com sucesso!";
+                echo "<script>alert('Usuário atualizado com sucesso!'); window.location.href = 'index.php';</script>";
             } else {
                 $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
                 $stmt->execute([$nome, $email, $senha]);
-                echo "Usuário cadastrado com sucesso!";
+                echo "<script>alert('Usuário cadastrado com sucesso!'); window.location.href = 'index.php';</script>";
             }
         }
     }
